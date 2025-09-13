@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUST Clubs Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f9fafb, #f1f5f9);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .club-card {
+      transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+    .club-card:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+      background: linear-gradient(135deg, #fef3c7, #fde68a);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 py-10 shadow-lg">
+    <h1 class="text-white text-5xl font-extrabold text-center drop-shadow-md">NUST Clubs Portal</h1>
+    <img src="https://via.placeholder.com/120" alt="NUST Logo" class="mx-auto mt-6 rounded-full shadow-md">
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto py-10 px-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Example Card -->
+      <div class="club-card rounded-xl p-6 bg-white border border-gray-200">
+        <a href="#" target="_blank">
+          <img src="https://via.placeholder.com/100" alt="NPAC Logo" class="mx-auto mb-4 rounded-full shadow-md">
+          <p class="text-center font-bold text-lg text-indigo-700">NPAC</p>
+          <p class="text-center text-gray-600">National Peace and Conflict Club.</p>
+        </a>
+      </div>
+
+      <div class="club-card rounded-xl p-6 bg-white border border-gray-200">
+        <a href="#" target="_blank">
+          <img src="https://via.placeholder.com/100" alt="NTKC Logo" class="mx-auto mb-4 rounded-full shadow-md">
+          <p class="text-center font-bold text-lg text-pink-700">NTKC</p>
+          <p class="text-center text-gray-600">National Technology and Knowledge Club.</p>
+        </a>
+      </div>
+
+      <div class="club-card rounded-xl p-6 bg-white border border-gray-200">
+        <a href="#" target="_blank">
+          <img src="https://via.placeholder.com/100" alt="NEC Logo" class="mx-auto mb-4 rounded-full shadow-md">
+          <p class="text-center font-bold text-lg text-green-700">NEC</p>
+          <p class="text-center text-gray-600">Nust Engineering Club.</p>
+        </a>
+      </div>
+
+      <div class="club-card rounded-xl p-6 bg-white border border-gray-200">
+        <a href="#" target="_blank">
+          <img src="https://via.placeholder.com/100" alt="iMecHe Logo" class="mx-auto mb-4 rounded-full shadow-md">
+          <p class="text-center font-bold text-lg text-yellow-700">iMecHe</p>
+          <p class="text-center text-gray-600">Institute of Mechanical Engineers.</p>
+        </a>
+      </div>
+
+      <!-- Add more clubs below in the same structure -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 py-6 mt-10">
+    <div class="text-center text-white text-sm">
+      <a href="#" class="hover:underline">Contact</a> | 
+      <a href="#" class="hover:underline">Feedback</a> | 
+      <a href="#" class="hover:underline">About</a>
+    </div>
+    <p class="text-center text-xs text-gray-100 mt-2">© 2025 NUST Clubs Portal</p>
+  </footer>
+</body>
+</html>
