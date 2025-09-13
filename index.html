@@ -25,56 +25,16 @@
   <header class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 py-10 shadow-lg">
     <h1 class="text-white text-5xl font-extrabold text-center drop-shadow-md">NUST Clubs Portal</h1>
     <img src="https://via.placeholder.com/120" alt="NUST Logo" class="mx-auto mt-6 rounded-full shadow-md">
+    <!-- Search -->
+    <div class="flex justify-center mt-6">
+      <input id="searchBar" type="text" placeholder="Search clubs..."
+        class="px-4 py-2 w-2/3 sm:w-1/2 lg:w-1/3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-500">
+    </div>
   </header>
 
   <!-- Main Content -->
   <main class="container mx-auto py-10 px-4">
-    
-    <!-- Search Bar -->
-    <div class="text-center mb-8">
-      <input 
-        type="text" 
-        id="searchInput" 
-        placeholder="Search for a club..." 
-        class="px-4 py-2 w-3/4 sm:w-1/2 border-2 border-indigo-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
-      >
-    </div>
-
-    <!-- Clubs Grid -->
-    <div id="clubsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <!-- Example Card -->
-      <div class="club-card rounded-xl p-6 bg-white border border-gray-200">
-        <a href="#" target="_blank">
-          <img src="https://via.placeholder.com/100" alt="NPAC Logo" class="mx-auto mb-4 rounded-full shadow-md">
-          <p class="text-center font-bold text-lg text-indigo-700">NPAC</p>
-          <p class="text-center text-gray-600">National Peace and Conflict Club.</p>
-        </a>
-      </div>
-
-      <div class="club-card rounded-xl p-6 bg-white border border-gray-200">
-        <a href="#" target="_blank">
-          <img src="https://via.placeholder.com/100" alt="NTKC Logo" class="mx-auto mb-4 rounded-full shadow-md">
-          <p class="text-center font-bold text-lg text-pink-700">NTKC</p>
-          <p class="text-center text-gray-600">National Technology and Knowledge Club.</p>
-        </a>
-      </div>
-
-      <div class="club-card rounded-xl p-6 bg-white border border-gray-200">
-        <a href="#" target="_blank">
-          <img src="https://via.placeholder.com/100" alt="NEC Logo" class="mx-auto mb-4 rounded-full shadow-md">
-          <p class="text-center font-bold text-lg text-green-700">NEC</p>
-          <p class="text-center text-gray-600">Nust Engineering Club.</p>
-        </a>
-      </div>
-
-      <div class="club-card rounded-xl p-6 bg-white border border-gray-200">
-        <a href="#" target="_blank">
-          <img src="https://via.placeholder.com/100" alt="iMecHe Logo" class="mx-auto mb-4 rounded-full shadow-md">
-          <p class="text-center font-bold text-lg text-yellow-700">iMecHe</p>
-          <p class="text-center text-gray-600">Institute of Mechanical Engineers.</p>
-        </a>
-      </div>
-    </div>
+    <div id="clubsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"></div>
   </main>
 
   <!-- Footer -->
@@ -86,22 +46,53 @@
     </div>
   </footer>
 
-  <!-- Search Script -->
+  <!-- Script -->
   <script>
-    const searchInput = document.getElementById("searchInput");
-    searchInput.addEventListener("keyup", function() {
-      const filter = searchInput.value.toLowerCase();
-      const clubs = document.querySelectorAll(".club-card");
-      
-      clubs.forEach(function(club) {
-        let text = club.innerText.toLowerCase();
-        if (text.includes(filter)) {
-          club.style.display = "";
-        } else {
-          club.style.display = "none";
+    async function loadClubs() {
+      const res = await fetch('clubs.json');
+      const clubs = await res.json();
+      const grid = document.getElementById('clubsGrid');
+      grid.innerHTML = '';
+
+      const defaultLogo = "https://via.placeholder.com/100?text=Club+Logo";
+
+      clubs.forEach(club => {
+        const card = document.createElement('div');
+        card.className = "club-card rounded-xl p-6 bg-white border border-gray-200";
+
+        let videoSection = '';
+        if (club.video) {
+          videoSection = `
+            <video controls class="mx-auto mt-4 rounded-lg shadow-md w-full">
+              <source src="${club.video}" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>`;
         }
+
+        const logo = club.logo && club.logo.trim() !== "" ? club.logo : defaultLogo;
+
+        card.innerHTML = `
+          <a href="${club.link}" target="_blank">
+            <img src="${logo}" alt="${club.name} Logo" class="mx-auto mb-4 rounded-full shadow-md w-24 h-24 object-cover">
+            <p class="text-center font-bold text-lg text-indigo-700">${club.name}</p>
+            <p class="text-center text-gray-600">${club.description}</p>
+          </a>
+          ${videoSection}
+        `;
+        grid.appendChild(card);
       });
-    });
+
+      // search function
+      document.getElementById('searchBar').addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        Array.from(grid.children).forEach(card => {
+          const text = card.innerText.toLowerCase();
+          card.style.display = text.includes(term) ? 'block' : 'none';
+        });
+      });
+    }
+
+    loadClubs();
   </script>
 </body>
 </html>
