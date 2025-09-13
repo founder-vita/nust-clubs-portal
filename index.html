@@ -29,7 +29,19 @@
 
   <!-- Main Content -->
   <main class="container mx-auto py-10 px-4">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    
+    <!-- Search Bar -->
+    <div class="text-center mb-8">
+      <input 
+        type="text" 
+        id="searchInput" 
+        placeholder="Search for a club..." 
+        class="px-4 py-2 w-3/4 sm:w-1/2 border-2 border-indigo-600 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-400"
+      >
+    </div>
+
+    <!-- Clubs Grid -->
+    <div id="clubsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- Example Card -->
       <div class="club-card rounded-xl p-6 bg-white border border-gray-200">
         <a href="#" target="_blank">
@@ -62,8 +74,6 @@
           <p class="text-center text-gray-600">Institute of Mechanical Engineers.</p>
         </a>
       </div>
-
-      <!-- Add more clubs below in the same structure -->
     </div>
   </main>
 
@@ -74,7 +84,24 @@
       <a href="#" class="hover:underline">Feedback</a> | 
       <a href="#" class="hover:underline">About</a>
     </div>
-    <p class="text-center text-xs text-gray-100 mt-2">© 2025 NUST Clubs Portal</p>
   </footer>
+
+  <!-- Search Script -->
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    searchInput.addEventListener("keyup", function() {
+      const filter = searchInput.value.toLowerCase();
+      const clubs = document.querySelectorAll(".club-card");
+      
+      clubs.forEach(function(club) {
+        let text = club.innerText.toLowerCase();
+        if (text.includes(filter)) {
+          club.style.display = "";
+        } else {
+          club.style.display = "none";
+        }
+      });
+    });
+  </script>
 </body>
 </html>
