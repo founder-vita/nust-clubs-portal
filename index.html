@@ -14,16 +14,35 @@
       transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
     }
     .club-card:hover {
-      transform: scale(1.07);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+      transform: scale(1.05);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
       background: linear-gradient(135deg, #fef3c7, #fde68a);
+    }
+    nav.sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #1e3a8a; /* Indigo-800 */
     }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
+  <nav class="sticky-nav shadow-md">
+    <div class="container mx-auto flex justify-between items-center py-3 px-4">
+      <h1 class="text-white text-2xl font-bold">NUST Clubs</h1>
+      <ul class="flex space-x-4">
+        <li><a href="#" class="text-white hover:underline">Home</a></li>
+        <li><a href="#clubsGrid" class="text-white hover:underline">Clubs</a></li>
+        <li><a href="#" class="text-white hover:underline">Contact</a></li>
+        <li><a href="#" class="text-white hover:underline">About</a></li>
+      </ul>
+    </div>
+  </nav>
+
   <!-- Header -->
-  <header class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 py-10 shadow-lg">
-    <h1 class="text-white text-5xl font-extrabold text-center drop-shadow-md">NUST Clubs Portal</h1>
+  <header class="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-500 py-10 shadow-lg text-center">
+    <h1 class="text-white text-5xl font-extrabold drop-shadow-md">NUST Clubs Portal</h1>
     <img src="https://via.placeholder.com/120" alt="NUST Logo" class="mx-auto mt-6 rounded-full shadow-md">
     <!-- Search -->
     <div class="flex justify-center mt-6">
@@ -58,7 +77,7 @@
 
       clubs.forEach(club => {
         const card = document.createElement('div');
-        card.className = "club-card rounded-xl p-6 bg-white border border-gray-200";
+        card.className = "club-card rounded-xl p-6 bg-white border border-gray-200 flex flex-col justify-between";
 
         let videoSection = '';
         if (club.video) {
@@ -72,11 +91,16 @@
         const logo = club.logo && club.logo.trim() !== "" ? club.logo : defaultLogo;
 
         card.innerHTML = `
-          <a href="${club.link}" target="_blank">
+          <div class="flex flex-col items-center">
             <img src="${logo}" alt="${club.name} Logo" class="mx-auto mb-4 rounded-full shadow-md w-24 h-24 object-cover">
             <p class="text-center font-bold text-lg text-indigo-700">${club.name}</p>
             <p class="text-center text-gray-600">${club.description}</p>
-          </a>
+          </div>
+          <div class="mt-4 text-center">
+            ${club.link && club.link.trim() !== "" ? 
+              `<a href="${club.link}" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow-md inline-block">Visit Page</a>` :
+              `<button class="bg-gray-400 text-white px-4 py-2 rounded-lg cursor-not-allowed" disabled>Link not provided</button>`}
+          </div>
           ${videoSection}
         `;
         grid.appendChild(card);
