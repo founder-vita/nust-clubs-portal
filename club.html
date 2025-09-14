@@ -18,12 +18,37 @@
   <!-- Club Content -->
   <main class="container mx-auto py-10 px-4">
     <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+      <!-- Logo -->
       <img id="clubLogo" src="" alt="Club Logo" class="w-32 h-32 mx-auto mb-4 rounded-full shadow-md object-cover">
+
+      <!-- Name -->
       <h2 id="clubName" class="text-3xl font-bold text-indigo-700"></h2>
+
+      <!-- Description -->
       <p id="clubDescription" class="text-gray-600 mt-4"></p>
+
+      <!-- Video -->
       <div id="clubVideo" class="mt-6"></div>
-      <div class="mt-6">
-        <a id="clubLink" href="#" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow-md inline-block">Visit External Page</a>
+
+      <!-- Links Section -->
+      <div class="mt-8 space-y-4">
+        <!-- Instagram -->
+        <a id="clubInstagram" href="#" target="_blank" 
+           class="bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg shadow-md inline-block">
+          📸 Visit Instagram Page
+        </a>
+
+        <!-- Email -->
+        <a id="clubEmail" href="#" 
+           class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg shadow-md inline-block">
+          📧 Contact via Email
+        </a>
+
+        <!-- External Page (optional) -->
+        <a id="clubLink" href="#" target="_blank" 
+           class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow-md inline-block">
+          🌐 Visit External Page
+        </a>
       </div>
     </div>
   </main>
@@ -58,6 +83,7 @@
       document.getElementById("clubDescription").innerText = club.description;
       document.getElementById("clubLogo").src = club.logo;
 
+      // Video
       if (club.video) {
         document.getElementById("clubVideo").innerHTML = `
           <video controls class="mx-auto mt-4 rounded-lg shadow-md w-full max-w-lg">
@@ -66,10 +92,25 @@
           </video>`;
       }
 
+      // Instagram
+      if (club.instagram) {
+        document.getElementById("clubInstagram").href = club.instagram;
+      } else {
+        document.getElementById("clubInstagram").style.display = "none";
+      }
+
+      // Email
+      if (club.email) {
+        document.getElementById("clubEmail").href = "mailto:" + club.email;
+      } else {
+        document.getElementById("clubEmail").style.display = "none";
+      }
+
+      // External page
       if (club.link) {
         document.getElementById("clubLink").href = club.link;
       } else {
-        document.getElementById("clubLink").outerHTML = "<p class='text-gray-500 mt-4'>No external page provided.</p>";
+        document.getElementById("clubLink").style.display = "none";
       }
     }
 
