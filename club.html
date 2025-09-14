@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Page - NUST Clubs Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+  <!-- Navigation -->
+  <nav class="bg-indigo-800 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="font-bold text-lg">⬅ Back to Portal</a>
+      <h1 id="clubTitle" class="text-xl font-bold"></h1>
+    </div>
+  </nav>
+
+  <!-- Club Content -->
+  <main class="container mx-auto py-10 px-4">
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+      <img id="clubLogo" src="" alt="Club Logo" class="w-32 h-32 mx-auto mb-4 rounded-full shadow-md object-cover">
+      <h2 id="clubName" class="text-3xl font-bold text-indigo-700"></h2>
+      <p id="clubDescription" class="text-gray-600 mt-4"></p>
+      <div id="clubVideo" class="mt-6"></div>
+      <div class="mt-6">
+        <a id="clubLink" href="#" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow-md inline-block">Visit External Page</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    async function loadClub() {
+      // 1. Get club name from URL
+      const params = new URLSearchParams(window.location.search);
+      const clubName = params.get("name");
+
+      if (!clubName) {
+        document.getElementById("clubName").innerText = "Club not found";
+        return;
+      }
+
+      // 2. Fetch all clubs
+      const res = await fetch("clubs.json");
+      const clubs = await res.json();
+
+      // 3. Find the right club
+      const club = clubs.find(c => c.name.toLowerCase() === clubName.toLowerCase());
+
+      if (!club) {
+        document.getElementById("clubName").innerText = "Club not found";
+        return;
+      }
+
+      // 4. Fill in details
+      document.title = club.name + " - NUST Clubs Portal";
+      document.getElementById("clubTitle").innerText = club.name;
+      document.getElementById("clubName").innerText = club.name;
+      document.getElementById("clubDescription").innerText = club.description;
+      document.getElementById("clubLogo").src = club.logo;
+
+      if (club.video) {
+        document.getElementById("clubVideo").innerHTML = `
+          <video controls class="mx-auto mt-4 rounded-lg shadow-md w-full max-w-lg">
+            <source src="${club.video}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>`;
+      }
+
+      if (club.link) {
+        document.getElementById("clubLink").href = club.link;
+      } else {
+        document.getElementById("clubLink").outerHTML = "<p class='text-gray-500 mt-4'>No external page provided.</p>";
+      }
+    }
+
+    loadClub();
+  </script>
+</body>
+</html>
