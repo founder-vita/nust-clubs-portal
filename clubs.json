@@ -3,7 +3,7 @@
     "name": "NPAC",
     "description": "National Peace and Conflict Club.",
     "logo": "",
-    "link": "#",
+    
     "video": null,
     "instagram": "https://instagram.com/npac_placeholder",
     "email": "npac@example.com"
@@ -12,7 +12,7 @@
     "name": "NTKC",
     "description": "National Technology and Knowledge Club.",
     "logo": "",
-    "link": "#",
+    
     "video": null,
     "instagram": "https://instagram.com/ntkc_placeholder",
     "email": "ntkc@example.com"
@@ -30,7 +30,7 @@
     "name": "IMechE",
     "description": "Institution of Mechanical Engineers.",
     "logo": "assets/logos/iMechE.png",
-    "link": "#",
+    
     "video": null,
     "instagram": "https://www.instagram.com/imeche_nust_chapter/",
     "email": "imeche@example.com"
@@ -39,7 +39,7 @@
     "name": "NCSC",
     "description": "Nust Computer Science Club.",
     "logo": "",
-    "link": "#",
+    
     "video": null,
     "instagram": "https://instagram.com/ncsc_placeholder",
     "email": "ncsc@example.com"
@@ -48,7 +48,7 @@
     "name": "NAC",
     "description": "Nust Art Club.",
     "logo": "",
-    "link": "#",
+    
     "video": null,
     "instagram": "https://instagram.com/nac_placeholder",
     "email": "nac@example.com"
@@ -57,7 +57,7 @@
     "name": "NSC",
     "description": "Nust Sports Club.",
     "logo": "",
-    "link": "#",
+    
     "video": null,
     "instagram": "https://instagram.com/nsc_placeholder",
     "email": "nsc@example.com"
@@ -66,7 +66,7 @@
     "name": "NFC",
     "description": "Nust Film Club.",
     "logo": "",
-    "link": "#",
+    
     "video": null,
     "instagram": "https://instagram.com/nfc_placeholder",
     "email": "nfc@example.com"
