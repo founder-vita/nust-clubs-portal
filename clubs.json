@@ -15,15 +15,15 @@
   },
   {
     "name": "NEC",
-    "description": "Nust Engineering Club.",
-    "logo": "",
+    "description": "Nust Entrepreneurs Club",
+    "logo": "assets/logos/NEntreC.png",
     "link": "#",
     "video": null
   },
   {
-    "name": "iMecHe",
-    "description": "Institute of Mechanical Engineers.",
-    "logo": "",
+    "name": "IMechE",
+    "description": "Institution of Mechanical Engineers",
+    "logo": "assets/logos/iMechE.png",
     "link": "#",
     "video": null
   },
