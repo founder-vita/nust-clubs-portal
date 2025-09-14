@@ -61,10 +61,10 @@
       <a href="about.html" class="hover:underline">About</a>
     </div>
     <!-- New text below the links -->
-  <p class="text-center text-white text-xs mt-2">
-    Made by the Students, for the Students~ <br>
-    © 2025 NUST Clubs Portal. All rights reserved.
-  </p>
+    <p class="text-center text-white text-xs mt-2">
+      Made by the Students, for the Students~ <br>
+      © 2025 NUST Clubs Portal. All rights reserved.
+    </p>
   </footer>
     
   <!-- Script -->
@@ -99,9 +99,10 @@
             <p class="text-center text-gray-600">${club.description}</p>
           </div>
           <div class="mt-4 text-center">
-            ${club.link && club.link.trim() !== "" ? 
-              `<a href="${club.link}" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow-md inline-block">Visit Page</a>` :
-              `<button class="bg-gray-400 text-white px-4 py-2 rounded-lg cursor-not-allowed" disabled>Link not provided</button>`}
+            <a href="club.html?name=${encodeURIComponent(club.name)}" 
+               class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow-md inline-block">
+               View Details
+            </a>
           </div>
           ${videoSection}
         `;
