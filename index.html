@@ -33,6 +33,7 @@
       <h1 class="text-white text-2xl font-bold">NUST Clubs Portal</h1>
       <ul class="flex space-x-4">
         <li><a href="#" class="text-white hover:underline">Home</a></li>
+        <li><a href="about.html" class="text-white hover:underline">About</a></li>
       </ul>
     </div>
   </nav>
@@ -60,7 +61,6 @@
       <a href="mailto:vitaexcelsior@gmail.com?subject=NUST Clubs Portal Feedback&body=Hello, I’d like to provide feedback about..." class="hover:underline">Feedback</a> | 
       <a href="about.html" class="hover:underline">About</a>
     </div>
-    <!-- New text below the links -->
     <p class="text-center text-white text-xs mt-2">
       Made by the Students, for the Students~ <br>
       © 2025 NUST Clubs Portal. All rights reserved.
@@ -92,20 +92,42 @@
 
         const logo = club.logo && club.logo.trim() !== "" ? club.logo : defaultLogo;
 
+        // Define possible socials
+        const socials = {
+          instagram: {icon: "📸", color: "bg-pink-500 hover:bg-pink-600"},
+          facebook: {icon: "📘", color: "bg-blue-600 hover:bg-blue-700"},
+          twitter: {icon: "🐦", color: "bg-sky-500 hover:bg-sky-600"},
+          linkedin: {icon: "💼", color: "bg-indigo-600 hover:bg-indigo-700"},
+          email: {icon: "📧", color: "bg-green-600 hover:bg-green-700"}
+        };
+
+        // Build only the socials that exist
+        let socialsHTML = "";
+        Object.keys(socials).forEach(key => {
+          if (club[key]) {
+            const url = key === "email" ? "mailto:" + club[key] : club[key];
+            socialsHTML += `
+              <a href="${url}" target="_blank"
+                 class="${socials[key].color} text-white px-3 py-2 rounded-lg shadow-md text-sm inline-block m-1">
+                 ${socials[key].icon} ${key.charAt(0).toUpperCase() + key.slice(1)}
+              </a>`;
+          }
+        });
+
+        // Build card HTML
         card.innerHTML = `
           <div class="flex flex-col items-center">
-            <img src="${logo}" alt="${club.name} Logo" class="mx-auto mb-4 rounded-full shadow-md w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36 object-cover">
+            <img src="${logo}" alt="${club.name} Logo" 
+                 class="mx-auto mb-4 rounded-full shadow-md w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36 object-cover">
             <p class="text-center font-bold text-lg text-indigo-700">${club.name}</p>
             <p class="text-center text-gray-600">${club.description}</p>
           </div>
-          <div class="mt-4 text-center">
-            <a href="club.html?name=${encodeURIComponent(club.name)}" 
-               class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-lg shadow-md inline-block">
-               View Details
-            </a>
+          <div class="mt-4 text-center flex flex-wrap justify-center">
+            ${socialsHTML}
           </div>
           ${videoSection}
         `;
+
         grid.appendChild(card);
       });
 
