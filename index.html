@@ -68,10 +68,16 @@
   </footer>
     
   <!-- Script -->
-  <script>
-    async function loadClubs() {
+ <script>
+  async function loadClubs() {
+    try {
       const res = await fetch('clubs.json');
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+
       const clubs = await res.json();
+      console.log("✅ Loaded clubs:", clubs); // Debug log
       const grid = document.getElementById('clubsGrid');
       grid.innerHTML = '';
 
@@ -92,7 +98,6 @@
 
         const logo = club.logo && club.logo.trim() !== "" ? club.logo : defaultLogo;
 
-        // Define possible socials
         const socials = {
           instagram: {icon: "📸", color: "bg-pink-500 hover:bg-pink-600"},
           facebook: {icon: "📘", color: "bg-blue-600 hover:bg-blue-700"},
@@ -101,7 +106,6 @@
           email: {icon: "📧", color: "bg-green-600 hover:bg-green-700"}
         };
 
-        // Build only the socials that exist
         let socialsHTML = "";
         Object.keys(socials).forEach(key => {
           if (club[key]) {
@@ -113,6 +117,42 @@
               </a>`;
           }
         });
+
+        card.innerHTML = `
+          <div class="flex flex-col items-center">
+            <img src="${logo}" alt="${club.name} Logo" 
+                 class="mx-auto mb-4 rounded-full shadow-md w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36 object-cover">
+            <p class="text-center font-bold text-lg text-indigo-700">${club.name}</p>
+            <p class="text-center text-gray-600">${club.description}</p>
+          </div>
+          <div class="mt-4 text-center flex flex-wrap justify-center">
+            ${socialsHTML}
+          </div>
+          ${videoSection}
+        `;
+
+        grid.appendChild(card);
+      });
+
+      document.getElementById('searchBar').addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase();
+        Array.from(grid.children).forEach(card => {
+          const text = card.innerText.toLowerCase();
+          card.style.display = text.includes(term) ? '' : 'none';
+        });
+      });
+
+    } catch (err) {
+      console.error("❌ Error loading clubs:", err);
+      document.getElementById('clubsGrid').innerHTML = `
+        <p class="text-red-600 font-bold">Failed to load clubs. Check console for details.</p>
+      `;
+    }
+  }
+
+  loadClubs();
+</script>
+
 
         // Build card HTML
         card.innerHTML = `
