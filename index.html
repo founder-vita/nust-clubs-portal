@@ -68,7 +68,7 @@
   </footer>
     
   <!-- Script -->
- <script>
+  <script>
   async function loadClubs() {
     try {
       const res = await fetch('clubs.json');
@@ -77,7 +77,7 @@
       }
 
       const clubs = await res.json();
-      console.log("✅ Loaded clubs:", clubs); // Debug log
+      console.log("✅ Loaded clubs:", clubs);
       const grid = document.getElementById('clubsGrid');
       grid.innerHTML = '';
 
@@ -134,6 +134,7 @@
         grid.appendChild(card);
       });
 
+      // Search function
       document.getElementById('searchBar').addEventListener('input', (e) => {
         const term = e.target.value.toLowerCase();
         Array.from(grid.children).forEach(card => {
@@ -151,37 +152,7 @@
   }
 
   loadClubs();
-</script>
-
-
-        // Build card HTML
-        card.innerHTML = `
-          <div class="flex flex-col items-center">
-            <img src="${logo}" alt="${club.name} Logo" 
-                 class="mx-auto mb-4 rounded-full shadow-md w-20 h-20 sm:w-28 sm:h-28 lg:w-36 lg:h-36 object-cover">
-            <p class="text-center font-bold text-lg text-indigo-700">${club.name}</p>
-            <p class="text-center text-gray-600">${club.description}</p>
-          </div>
-          <div class="mt-4 text-center flex flex-wrap justify-center">
-            ${socialsHTML}
-          </div>
-          ${videoSection}
-        `;
-
-        grid.appendChild(card);
-      });
-
-      // search function
-      document.getElementById('searchBar').addEventListener('input', (e) => {
-        const term = e.target.value.toLowerCase();
-        Array.from(grid.children).forEach(card => {
-          const text = card.innerText.toLowerCase();
-          card.style.display = text.includes(term) ? 'block' : 'none';
-        });
-      });
-    }
-
-    loadClubs();
   </script>
 </body>
 </html>
+
