@@ -1,25 +1,25 @@
 [
   {
     "name": "NPAC",
-    "description": "National Peace and Conflict Club",
+    "description": "NUST Physics & Astronomy Club",
     "logo": "",
     
     "video": null,
-    "instagram": "https://instagram.com/npac_placeholder",
+    "instagram": "https://www.instagram.com/npasofficial/",
     "email": "npac@example.com"
   },
   {
     "name": "NTKC",
-    "description": "National Technology and Knowledge Club.",
+    "description": "NUST Thought and Knowledge Club",
     "logo": "",
     
     "video": null,
-    "instagram": "https://instagram.com/ntkc_placeholder",
+    "instagram": "https://instagram.com/ntkc.2025",
     "email": "ntkc@example.com"
   },
   {
     "name": "NEC",
-    "description": "Nust Entrepreneurs Club.",
+    "description": "NUST Entrepreneurs Club",
     "logo": "assets/logos/NEntreC.png",
     
     "video": null,
@@ -28,7 +28,7 @@
   },
   {
     "name": "IMechE",
-    "description": "Institution of Mechanical Engineers.",
+    "description": "Institution of Mechanical Engineers",
     "logo": "assets/logos/iMechE.png",
     
     "video": null,
@@ -37,39 +37,164 @@
   },
   {
     "name": "NCSC",
-    "description": "Nust Computer Science Club.",
+    "description": "NUST Community Service Club",
     "logo": "",
     
     "video": null,
-    "instagram": "https://instagram.com/ncsc_placeholder",
+    "instagram": "https://www.instagram.com/ncsc_insta/",
     "email": "ncsc@example.com"
   },
   {
-    "name": "NAC",
-    "description": "Nust Art Club.",
+    "name": "NDC",
+    "description": "NUST Dramatics Club",
     "logo": "",
     
     "video": null,
-    "instagram": "https://instagram.com/nac_placeholder",
+    "instagram": "https://www.instagram.com/nustdramaticssclub/",
     "email": "nac@example.com"
   },
   {
-    "name": "NSC",
-    "description": "Nust Sports Club.",
+    "name": "NLC",
+    "description": "NUST Literary Circle",
     "logo": "",
     
     "video": null,
-    "instagram": "https://instagram.com/nsc_placeholder",
+    "instagram": "https://www.instagram.com/nust_literary_circle/",
     "email": "nsc@example.com"
   },
   {
     "name": "NFC",
-    "description": "Nust Film Club.",
+    "description": "NUST Fitness Club",
     "logo": "",
     
     "video": null,
-    "instagram": "https://instagram.com/nfc_placeholder",
+    "instagram": "https://www.instagram.com/nust_fitness_club/",
     "email": "nfc@example.com"
-  }
+  },
+  {
+    "name": "IEEE",
+    "description": "NUST IEEE",
+    "logo": "",
+    
+    "video": null,
+    "instagram": "https://www.instagram.com/nust_ieee/",
+    "email": "nfc@example.com"
+  },
+  {
+    "name": "TYBN",
+    "description": "Taba Youth Chapter NUST",
+    "logo": "",
+    
+    "video": null,
+    "instagram": "https://www.instagram.com/tycnust/",
+    "email": "nfc@example.com"
+  },
+  {
+    "name": "NDS",
+    "description": "NUST Debating Society",
+    "logo": "",
+    
+    "video": null,
+    "instagram": "https://www.instagram.com/nustdebatingsociety/",
+    "email": "nfc@example.com"
+  },
+  {
+    "name": "NAC",
+    "description": "NUST Archery Club",
+    "logo": "",
+    
+    "video": null,
+    "instagram": "https://www.instagram.com/nust_archery_club/",
+    "email": "nfc@example.com"
+  },
+  {
+    "name": "SVS",
+    "description": "NUST Social Values Society",
+    "logo": "",
+    
+    "video": null,
+    "instagram": "https://www.instagram.com/nust.svs/",
+    "email": "nfc@example.com"
+  },
+  {
+    "name": "AIESEC",
+    "description": "AIESEC NUST Chapter",
+    "logo": "",
+    
+    "video": null,
+    "instagram": "https://www.instagram.com/nustxaiesec/",
+    "email": "nfc@example.com"
+  },
+  {
+    "name": "AIChE",
+    "description": "AIChE NUST Chapter",
+    "logo": "",
+    
+    "video": null,
+    "instagram": "https://www.instagram.com/aiche.nust/",
+    "email": "nfc@example.com"
+  },
+  {
+    "name": "NSAC",
+    "description": "NUST Stray Animals Club",
+    "logo": "",
+    
+    "video": null,
+    "instagram": "https://www.instagram.com/strayanimalsnust/",
+    "email": "nfc@example.com"
+  },
+  {
+    "name": "WIN",
+    "description": "Women of Impact NUST",
+    "logo": "",
+    
+    "video": null,
+    "instagram": "https://www.instagram.com/win_nust/",
+    "email": "nfc@example.com"
+  },
+  {
+    "name": "NTechAC",
+    "description": "NUST Technical Amusement Club",
+    "logo": "",
+    
+    "video": null,
+    "instagram": "https://www.instagram.com/nust_technical_amusement_club/",
+    "email": "nfc@example.com"
+  },
+  {
+    "name": "NGDC",
+    "description": "NUST Game Development Club",
+    "logo": "",
+    
+    "video": null,
+    "instagram": "https://www.instagram.com/nustgdc",
+    "email": "nfc@example.com"
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 ]
 
